@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url("assets/fonts/Poppins-Italic.ttf");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url("assets/fonts/Poppins-Regular.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url("assets/fonts/Poppins-BoldItalic.ttf");
+  font-weight: 800;
+  font-style: italic;
+}
+
+:root {
+  --primary-color-purple: hsl(259, 100%, 65%);
+  --primary-color-light-red: hsl(0, 100%, 67%);
+  
+  --neutral-color-white: hsl(0, 0%, 100%);
+  --neutral-color-off-white: hsl(0, 0%, 94%);
+  --neutral-color-light-grey: hsl(0, 0%, 86%);
+  --neutral-color-smokey-grey: hsl(0, 1%, 44%);
+  --neutral-color-off-black: hsl(0, 0%, 8%);
+
+  --font-size-inputs: 32px;
+  
+  font-family: "Poppins", sans-serif;
+  background-color: var(--neutral-color-off-white);
+}
