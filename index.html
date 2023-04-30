@@ -38,7 +38,7 @@
       }
 
       .form-section {
-        --form-section-padding-top: 50px;
+        --form-section-padding-top: 45px;
         flex-basis: calc(187px - var(--form-section-padding-top));
         padding-top: var(--form-section-padding-top);
       }
@@ -54,6 +54,10 @@
         letter-spacing: 3px;
       }
 
+      label.invalid {
+        color: var(--primary-color-light-red);
+      }
+
       input {
         width: 68px;
         height: 50px;
@@ -64,6 +68,18 @@
         font-size: 20px;
         font-weight: 700;
         color: var(--neutral-color-off-black);
+      }
+
+      input.invalid {
+        border: 1px solid var(--primary-color-light-red);
+      }
+
+      .error {
+        color: var(--primary-color-light-red);
+        font-weight: 400;
+        font-style: italic;
+        font-size: 10px;
+        margin: 0;
       }
 
       .divider-container {
@@ -137,18 +153,21 @@
     <main>
       <div class="card">
         <div class="form-section">
-          <form>
+          <form novalidate>
             <div class="input-group">
               <label for="day">DAY</label>
-              <input type="number" id="day" name="day" placeholder="DD" />
+              <input type="number" id="day" name="day" placeholder="DD" required min="1" max="31" />
+              <p id="day-error" class="error" aria-live="polite"></p>
             </div>
             <div class="input-group">
               <label for="month">MONTH</label>
-              <input type="number" id="month" name="month" placeholder="MM" />
+              <input type="number" id="month" name="month" placeholder="MM" required min="1" max="12" />
+              <p id="month-error" class="error" aria-live="polite"></p>
             </div>
             <div class="input-group">
               <label for="year">YEAR</label>
-              <input type="number" id="year" name="year" placeholder="YYYY" />
+              <input type="number" id="year" name="year" placeholder="YYYY" required />
+              <p id="year-error" class="error" aria-live="polite"></p>
             </div>
           </form>
         </div>
