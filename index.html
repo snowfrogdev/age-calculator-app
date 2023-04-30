@@ -26,17 +26,70 @@
       }
 
       .card {
-        width: 343px;
+        --card-padding: 25px;
+        width: calc(343px - 2 * var(--card-padding));
+        padding: 0;
+        padding-left: var(--card-padding);
+        padding-right: var(--card-padding);
         height: 486px;
         background-color: var(--neutral-color-white);
         border-radius: 25px 25px 100px 25px;
+        display: flex;
+        flex-direction: column;
       }
 
-      @media screen and (min-width: 768px) {
-        .card {
-          width: 740px;
-          height: 574px;
-        }
+      .form-section {
+        flex-basis: 187px;
+      }
+
+      .divider-container {
+        height: 0;
+      }
+
+      .divider {
+        height: 2px;
+        width: 100%;
+        background-color: var(--neutral-color-light-grey);
+      }
+
+      .submit-button {
+        --button-size: 64px;
+        position: relative;
+        top: calc(0px - var(--button-size) / 2);
+        left: calc(50% - var(--button-size) / 2);
+        width: var(--button-size);
+        height: var(--button-size);
+        border-radius: 50%;
+        background-color: var(--primary-color-purple);
+        margin: auto;
+        border: none;
+        cursor: pointer;
+      }
+
+      .submit-button img {
+        width: 50%;
+        height: 50%;
+      }
+
+      .result-section {
+        display: flex;
+        flex-direction: column;
+        padding-top: 64px;
+        flex-grow: 1;
+      }
+
+      .result-section p {
+        font-size: 57px;
+        font-weight: 800;
+        font-style: italic;
+        color: var(--neutral-color-off-black);
+        margin: 0;
+        line-height: 63px;
+        letter-spacing: -2px;
+      }
+
+      .result-number {
+        color: var(--primary-color-purple);
       }
 
       .attribution {
@@ -46,6 +99,13 @@
       .attribution a {
         color: hsl(228, 45%, 44%);
       }
+
+      @media screen and (min-width: 768px) {
+        .card {
+          width: 740px;
+          height: 574px;
+        }
+      }
     </style>
   </head>
 
@@ -53,7 +113,18 @@
     <script src="./dist/main.js"></script>
 
     <main>
-      <div class="card"></div>
+      <div class="card">
+        <div class="form-section"></div>
+        <div class="divider-container">
+          <div class="divider"></div>
+          <button class="submit-button"><img src="./assets/images/icon-arrow.svg" alt="arrow-logo" /></button>
+        </div>
+        <div class="result-section">
+          <p><span class="result-number">38</span> years</p>
+          <p><span class="result-number">3</span> months</p>
+          <p><span class="result-number">26</span> days</p>
+        </div>
+      </div>
     </main>
     <footer class="attribution">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by
