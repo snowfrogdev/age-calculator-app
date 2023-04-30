@@ -39,7 +39,32 @@
       }
 
       .form-section {
-        flex-basis: 187px;
+        --form-section-padding-top: 50px;
+        flex-basis: calc(187px - var(--form-section-padding-top));
+        padding-top: var(--form-section-padding-top);
+      }
+
+      form {
+        display: flex;
+        gap: 15px;
+      }
+
+      label {
+        color: var(--neutral-color-smokey-grey);
+        font-size: 12px;
+        letter-spacing: 3px;
+      }
+
+      input {
+        width: 68px;
+        height: 50px;
+        border: 1px solid var(--neutral-color-light-grey);
+        padding-left: 15px;
+        border-radius: 7px;
+        font-family: "Poppins", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--neutral-color-off-black);
       }
 
       .divider-container {
@@ -114,7 +139,22 @@
 
     <main>
       <div class="card">
-        <div class="form-section"></div>
+        <div class="form-section">
+          <form>
+            <div class="input-group">
+              <label for="day">DAY</label>
+              <input type="number" id="day" name="day" value="24" />
+            </div>
+            <div class="input-group">
+              <label for="month">MONTH</label>
+              <input type="number" id="month" name="month" value="09" />
+            </div>
+            <div class="input-group">
+              <label for="year">YEAR</label>
+              <input type="number" id="year" name="year" value="1984" />
+            </div>
+          </form>
+        </div>
         <div class="divider-container">
           <div class="divider"></div>
           <button class="submit-button"><img src="./assets/images/icon-arrow.svg" alt="arrow-logo" /></button>
