@@ -1,7 +1,8 @@
 {
   "scripts": {
     "build": "tsc",
-    "watch": "tsc -w"
+    "watch": "tsc -w",
+    "test": "node dist/tests/index.js"
   },
   "devDependencies": {
     "typescript": "^5.0.4"
