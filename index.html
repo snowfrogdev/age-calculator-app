@@ -108,6 +108,7 @@
         margin: 0;
         line-height: 63px;
         letter-spacing: -2px;
+        white-space: nowrap;
       }
 
       .result-number {
@@ -124,8 +125,39 @@
 
       @media screen and (min-width: 768px) {
         .card {
-          width: 740px;
+          --card-padding: 50px;
+          width: calc(740px - 2 * var(--card-padding));
           height: 574px;
+          border-radius: 25px 25px 175px 25px;
+        }
+
+        .form-section {
+          --form-section-padding-top: 50px;
+          flex-basis: calc(180px - var(--form-section-padding-top));
+        }
+
+        form {
+          gap: 27px;
+        }
+
+        .submit-button {
+          --button-size: 88px;
+          top: calc(50% - var(--button-size) / 2);
+          left: calc(100% - var(--button-size));
+        }
+
+        .submit-button img {
+          width: 60%;
+          height: 60%;
+        }
+
+        .result-section {
+          padding-top: 44px;
+        }
+
+        .result-section p {
+          font-size: 90px;
+          line-height: 98px;
         }
       }
     </style>
@@ -152,9 +184,9 @@
           <button class="submit-button"><img src="./assets/images/icon-arrow.svg" alt="arrow-logo" /></button>
         </div>
         <div class="result-section">
-          <p><span id="result-years" class="result-number">--</span> <span id="result-years-label">years</span></p>
-          <p><span id="result-months" class="result-number">--</span> <span id="result-months-label">months</span></p>
-          <p><span id="result-days" class="result-number">--</span> <span id="result-days-label">days</span></p>
+          <p><span id="result-years" class="result-number">- -</span> <span id="result-years-label">years</span></p>
+          <p><span id="result-months" class="result-number">- -</span> <span id="result-months-label">months</span></p>
+          <p><span id="result-days" class="result-number">- -</span> <span id="result-days-label">days</span></p>
         </div>
       </div>
     </main>

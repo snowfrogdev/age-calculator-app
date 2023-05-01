@@ -2,6 +2,7 @@ const template = document.createElement("template");
 template.innerHTML = `
   <style>
     label {
+      display: block;
       color: var(--neutral-color-smokey-grey);
       font-size: 12px;
       letter-spacing: 3px;
@@ -40,6 +41,24 @@ template.innerHTML = `
       font-style: italic;
       font-size: 10px;
       margin: 0;
+    }
+
+    @media screen and (min-width: 768px) {
+      label {
+        padding-bottom: 7px;
+      }
+
+      :host ::slotted(input) {
+        width: 121px;
+        height: 60px;
+        font-size: var(--font-size-inputs);
+        padding-left: 20px;
+      }
+
+      .error {
+        margin-top: 5px;
+        font-size: 12px;
+      }
     }
   </style>
 

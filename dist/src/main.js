@@ -63,9 +63,9 @@ submitButton.addEventListener("click", (event) => {
     resultYearsLabelElement.textContent = pluralize(age.years, "year", "years");
 });
 function resetResults() {
-    resultDaysElement.textContent = "--";
-    resultMonthsElement.textContent = "--";
-    resultYearsElement.textContent = "--";
+    resultDaysElement.textContent = "- -";
+    resultMonthsElement.textContent = "- -";
+    resultYearsElement.textContent = "- -";
     resultDaysLabelElement.textContent = "days";
     resultMonthsLabelElement.textContent = "months";
     resultYearsLabelElement.textContent = "years";

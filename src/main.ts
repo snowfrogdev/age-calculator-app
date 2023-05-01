@@ -81,9 +81,9 @@ submitButton.addEventListener("click", (event) => {
 });
 
 function resetResults() {
-  resultDaysElement.textContent = "--";
-  resultMonthsElement.textContent = "--";
-  resultYearsElement.textContent = "--";
+  resultDaysElement.textContent = "- -";
+  resultMonthsElement.textContent = "- -";
+  resultYearsElement.textContent = "- -";
   resultDaysLabelElement.textContent = "days";
   resultMonthsLabelElement.textContent = "months";
   resultYearsLabelElement.textContent = "years";
