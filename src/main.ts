@@ -8,6 +8,7 @@ const formElement = document.querySelector("form")!;
 const dayInputGroupElement: InputGroupComponent = document.querySelector("#day-input-group")!;
 const monthInputGroupElement: InputGroupComponent = document.querySelector("#month-input-group")!;
 const yearInputGroupElement: InputGroupComponent = document.querySelector("#year-input-group")!;
+const yearInputElement = yearInputGroupElement.querySelector("input")!;
 
 const submitButton = document.querySelector("button")!;
 
@@ -17,6 +18,8 @@ const resultYearsElement = document.querySelector("#result-years")!;
 const resultDaysLabelElement = document.querySelector("#result-days-label")!;
 const resultMonthsLabelElement = document.querySelector("#result-months-label")!;
 const resultYearsLabelElement = document.querySelector("#result-years-label")!;
+
+yearInputElement.max = new Date().getFullYear().toString();
 
 submitButton.addEventListener("click", (event) => {
   event.preventDefault();

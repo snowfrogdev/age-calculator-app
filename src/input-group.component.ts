@@ -106,6 +106,10 @@ export class InputGroupComponent extends HTMLElement {
     if (validityState.rangeOverflow || validityState.rangeUnderflow) {
       this.inputErrorElement.textContent = `Must be a valid ${this.label}`;
     }
+
+    if (this.inputElement.name === "year" && validityState.rangeOverflow) {
+      this.inputErrorElement.textContent = "Must be in the past";
+    }
   }
 
   attributeChangedCallback() {}
