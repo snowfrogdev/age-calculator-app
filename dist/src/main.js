@@ -55,19 +55,26 @@ submitButton.addEventListener("click", (event) => {
         return;
     }
     const age = getAge(new Date(+year, +month - 1, +day));
-    resultDaysElement.textContent = age.days.toString();
-    resultMonthsElement.textContent = age.months.toString();
-    resultYearsElement.textContent = age.years.toString();
+    updateResult(resultDaysElement, age.days.toString());
+    updateResult(resultMonthsElement, age.months.toString());
+    updateResult(resultYearsElement, age.years.toString());
     resultDaysLabelElement.textContent = pluralize(age.days, "day", "days");
     resultMonthsLabelElement.textContent = pluralize(age.months, "month", "months");
     resultYearsLabelElement.textContent = pluralize(age.years, "year", "years");
 });
 function resetResults() {
-    resultDaysElement.textContent = "- -";
-    resultMonthsElement.textContent = "- -";
-    resultYearsElement.textContent = "- -";
+    updateResult(resultDaysElement, "- -");
+    updateResult(resultMonthsElement, "- -");
+    updateResult(resultYearsElement, "- -");
     resultDaysLabelElement.textContent = "days";
     resultMonthsLabelElement.textContent = "months";
     resultYearsLabelElement.textContent = "years";
+}
+function updateResult(element, newValue) {
+    element.classList.add("animate");
+    setTimeout(() => {
+        element.textContent = newValue;
+        element.classList.remove("animate");
+    }, 150);
 }
 //# sourceMappingURL=main.js.map
