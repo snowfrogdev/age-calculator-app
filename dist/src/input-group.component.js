@@ -22,6 +22,12 @@ template.innerHTML = `
       font-size: 20px;
       font-weight: 700;
       color: var(--neutral-color-off-black);
+      caret-color: var(--primary-color-purple);
+    }
+
+    :host ::slotted(input:focus-visible),
+    :host ::slotted(input:hover) {
+      outline: 1px solid var(--primary-color-purple);
     }
 
     :host ::slotted(input.invalid) {

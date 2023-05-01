@@ -48,6 +48,12 @@
         gap: 15px;
       }
 
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
       .divider-container {
         height: 0;
       }
@@ -70,6 +76,16 @@
         margin: auto;
         border: none;
         cursor: pointer;
+      }
+
+      .submit-button:focus-visible,
+      .submit-button:hover {
+        outline: 1px solid var(--primary-color-purple);
+      }
+
+      .submit-button:active {
+        background-color: var(--neutral-color-off-black);
+        outline: 1px solid var(--neutral-color-off-black);
       }
 
       .submit-button img {
