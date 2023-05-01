@@ -48,40 +48,6 @@
         gap: 15px;
       }
 
-      label {
-        color: var(--neutral-color-smokey-grey);
-        font-size: 12px;
-        letter-spacing: 3px;
-      }
-
-      label.invalid {
-        color: var(--primary-color-light-red);
-      }
-
-      input {
-        width: 68px;
-        height: 50px;
-        border: 1px solid var(--neutral-color-light-grey);
-        padding-left: 15px;
-        border-radius: 7px;
-        font-family: "Poppins", sans-serif;
-        font-size: 20px;
-        font-weight: 700;
-        color: var(--neutral-color-off-black);
-      }
-
-      input.invalid {
-        border: 1px solid var(--primary-color-light-red);
-      }
-
-      .error {
-        color: var(--primary-color-light-red);
-        font-weight: 400;
-        font-style: italic;
-        font-size: 10px;
-        margin: 0;
-      }
-
       .divider-container {
         height: 0;
       }
@@ -154,21 +120,15 @@
       <div class="card">
         <div class="form-section">
           <form novalidate>
-            <div class="input-group">
-              <label for="day">DAY</label>
+            <x-input-group id="day-input-group" label="DAY">
               <input type="number" id="day" name="day" placeholder="DD" required min="1" max="31" />
-              <p id="day-error" class="error" aria-live="polite"></p>
-            </div>
-            <div class="input-group">
-              <label for="month">MONTH</label>
+            </x-input-group>
+            <x-input-group id="month-input-group" label="MONTH">
               <input type="number" id="month" name="month" placeholder="MM" required min="1" max="12" />
-              <p id="month-error" class="error" aria-live="polite"></p>
-            </div>
-            <div class="input-group">
-              <label for="year">YEAR</label>
+            </x-input-group>
+            <x-input-group id="year-input-group" label="YEAR">
               <input type="number" id="year" name="year" placeholder="YYYY" required />
-              <p id="year-error" class="error" aria-live="polite"></p>
-            </div>
+            </x-input-group>
           </form>
         </div>
         <div class="divider-container">

@@ -6,4 +6,4 @@ export function getAge(birthdate, now = Date.now) {
     const days = age.getUTCDate() - 1;
     return { years, months, days };
 }
-//# sourceMappingURL=getAge.js.map
+//# sourceMappingURL=get-age.js.map

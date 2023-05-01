@@ -1,4 +1,4 @@
-import { getAge } from "../src/getAge";
+import { getAge } from "../src/get-age";
 function testGetAge(birthdate, now = Date.now, expected) {
     const actual = getAge(birthdate, now);
     if (actual.years !== expected.years || actual.months !== expected.months || actual.days !== expected.days) {
