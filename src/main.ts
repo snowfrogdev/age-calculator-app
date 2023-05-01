@@ -1,12 +1,13 @@
 import { getAge } from "./get-age.js";
 import { pluralize } from "./pluralize.js";
 import "./input-group.component.js";
+import { InputGroupComponent } from "./input-group.component.js";
 
 const formElement = document.querySelector("form")!;
 
-const dayInputGroupElement = document.querySelector("#day-input-group")!;
-const monthInputGroupElement = document.querySelector("#month-input-group")!;
-const yearInputGroupElement = document.querySelector("#year-input-group")!;
+const dayInputGroupElement: InputGroupComponent = document.querySelector("#day-input-group")!;
+const monthInputGroupElement: InputGroupComponent = document.querySelector("#month-input-group")!;
+const yearInputGroupElement: InputGroupComponent = document.querySelector("#year-input-group")!;
 
 const submitButton = document.querySelector("button")!;
 
@@ -24,24 +25,11 @@ submitButton.addEventListener("click", (event) => {
   const month = formData.get("month") as string;
   const year = formData.get("year") as string;
 
-  let hasErrors = false;
-
-  if (day === "") {
-    dayInputGroupElement.setAttribute("invalid", "");
-    hasErrors = true;
+  for (const inputGroup of [dayInputGroupElement, monthInputGroupElement, yearInputGroupElement]) {
+    inputGroup.submit();
   }
 
-  if (month === "") {
-    monthInputGroupElement.setAttribute("invalid", "");
-    hasErrors = true;
-  }
-
-  if (year === "") {
-    yearInputGroupElement.setAttribute("invalid", "");
-    hasErrors = true;
-  }
-
-  if (hasErrors) {
+  if (!formElement.checkValidity()) {
     resultDaysElement.textContent = "--";
     resultMonthsElement.textContent = "--";
     resultYearsElement.textContent = "--";

@@ -18,20 +18,10 @@ submitButton.addEventListener("click", (event) => {
     const day = formData.get("day");
     const month = formData.get("month");
     const year = formData.get("year");
-    let hasErrors = false;
-    if (day === "") {
-        dayInputGroupElement.setAttribute("invalid", "");
-        hasErrors = true;
+    for (const inputGroup of [dayInputGroupElement, monthInputGroupElement, yearInputGroupElement]) {
+        inputGroup.submit();
     }
-    if (month === "") {
-        monthInputGroupElement.setAttribute("invalid", "");
-        hasErrors = true;
-    }
-    if (year === "") {
-        yearInputGroupElement.setAttribute("invalid", "");
-        hasErrors = true;
-    }
-    if (hasErrors) {
+    if (!formElement.checkValidity()) {
         resultDaysElement.textContent = "--";
         resultMonthsElement.textContent = "--";
         resultYearsElement.textContent = "--";
