@@ -43,12 +43,9 @@ template.innerHTML = `
 `;
 
 export class InputGroupComponent extends HTMLElement {
-  inputLabelElement: any;
+  inputLabelElement: HTMLLabelElement;
   inputElement: HTMLInputElement;
-  inputErrorElement: any;
-  static get observedAttributes() {
-    return [];
-  }
+  inputErrorElement: HTMLParagraphElement;
 
   get label() {
     return this.getAttribute("label");
@@ -59,6 +56,23 @@ export class InputGroupComponent extends HTMLElement {
       this.setAttribute("label", value);
     } else {
       this.removeAttribute("label");
+    }
+  }
+
+  get invalid() {
+    return this.hasAttribute("invalid");
+  }
+
+  set invalid(value: boolean) {
+    if (value) {
+      this.setAttribute("invalid", "");
+      this.inputLabelElement.classList.add("invalid");
+      this.inputElement.classList.add("invalid");
+    } else {
+      this.removeAttribute("invalid");
+      this.inputLabelElement.classList.remove("invalid");
+      this.inputElement.classList.remove("invalid");
+      this.inputErrorElement.textContent = "";
     }
   }
 
@@ -90,15 +104,11 @@ export class InputGroupComponent extends HTMLElement {
   private validate() {
     const validityState = this.inputElement.validity;
     if (validityState.valid) {
-      this.inputLabelElement.classList.remove("invalid");
-      this.inputElement.classList.remove("invalid");
-      this.inputErrorElement.textContent = "";
+      this.invalid = false;
       return;
     }
 
-    this.inputLabelElement.classList.add("invalid");
-    this.inputElement.classList.add("invalid");
-
+    this.invalid = true;
     if (validityState.valueMissing) {
       this.inputErrorElement.textContent = "This field is required";
     }
@@ -111,8 +121,6 @@ export class InputGroupComponent extends HTMLElement {
       this.inputErrorElement.textContent = "Must be in the past";
     }
   }
-
-  attributeChangedCallback() {}
 }
 
 customElements.define("x-input-group", InputGroupComponent);

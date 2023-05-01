@@ -45,9 +45,6 @@ export class InputGroupComponent extends HTMLElement {
     inputLabelElement;
     inputElement;
     inputErrorElement;
-    static get observedAttributes() {
-        return [];
-    }
     get label() {
         return this.getAttribute("label");
     }
@@ -57,6 +54,22 @@ export class InputGroupComponent extends HTMLElement {
         }
         else {
             this.removeAttribute("label");
+        }
+    }
+    get invalid() {
+        return this.hasAttribute("invalid");
+    }
+    set invalid(value) {
+        if (value) {
+            this.setAttribute("invalid", "");
+            this.inputLabelElement.classList.add("invalid");
+            this.inputElement.classList.add("invalid");
+        }
+        else {
+            this.removeAttribute("invalid");
+            this.inputLabelElement.classList.remove("invalid");
+            this.inputElement.classList.remove("invalid");
+            this.inputErrorElement.textContent = "";
         }
     }
     _submitted = false;
@@ -81,13 +94,10 @@ export class InputGroupComponent extends HTMLElement {
     validate() {
         const validityState = this.inputElement.validity;
         if (validityState.valid) {
-            this.inputLabelElement.classList.remove("invalid");
-            this.inputElement.classList.remove("invalid");
-            this.inputErrorElement.textContent = "";
+            this.invalid = false;
             return;
         }
-        this.inputLabelElement.classList.add("invalid");
-        this.inputElement.classList.add("invalid");
+        this.invalid = true;
         if (validityState.valueMissing) {
             this.inputErrorElement.textContent = "This field is required";
         }
@@ -98,7 +108,6 @@ export class InputGroupComponent extends HTMLElement {
             this.inputErrorElement.textContent = "Must be in the past";
         }
     }
-    attributeChangedCallback() { }
 }
 customElements.define("x-input-group", InputGroupComponent);
 //# sourceMappingURL=input-group.component.js.map
